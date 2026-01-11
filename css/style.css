@@ -1,1 +1,75 @@
-stylebody { background: #f5f5f5; }
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Desktop  */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+    }
+
+.site-title {
+  margin: 0;
+  font-size: 28px;
+    }
+
+.site-nav a {
+  margin-left: 12px;
+  text-decoration: none;
+  color: #333;
+}
+
+/* Desktop: input and button sidebyside */
+.search-form {
+  display: flex;
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+ }
+
+.search-button {
+  padding: 10px 14px;
+  font-size: 16px;
+ cursor: pointer;
+}
+
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.grid-item {
+  flex: 0 0 240px; 
+
+.grid-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.status {
+  color: #555;
+  margin: 12px 0;
+}
+
+}
