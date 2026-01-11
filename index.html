@@ -1,45 +1,46 @@
 <!DOCTYPE html>
-<html lang="en"
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Giftr Search</title>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Giftr Search</title>
 
-        <link rel="stylesheet" href="css/style.css" />
-    </head>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-    <body>
-        <header class="site-header">
-            <h1 class="site-title">Search for GIFs</h1>
+  <body>
 
-            <nav class="site-nav">
-                <a href="#">Home</a>
-                <a href="#">Trending</a>
-                <a href="#">About</a>
-            </nav>
 
-        </header>
+    <header class="site-header">
+      <h1 class="site-title">Search for GIFs</h1>
 
-<main class="container">
-    <section class="search-section">
+      <nav class="site-nav">
+        <a href="#">Home</a>
+        <a href="#">Trending</a>
+        <a href="#">Abosut</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="search-section">
+        <h2 class="hidden-search">Search</h2>
         <form id="searchForm" class="search-form">
-            <input id="searchInput" class="search-input" type="search" placeholder="Time to Search!"
+          <input
+            id="searchInput"
+            class="search-input"
+            type="search"
+            placeholder="Time to Search!"
             required />
-        <button type="submit" class="search-button">Search!</button>
-    </form>
-    </section>
+          <button type="submit" class="search-button">Search </button>
+        </form>
+      </section>
 
-    <section class="results-section">
+      <section class="results-section">
         <h2 class="results-title">Results</h2>
-
- <div id="resultsGrid" class="grid"></div>
+        <div id="resultsGrid" class="grid"></div>
       </section>
     </main>
 
-    <!--JS-->
-
-
-
-
-    </main>
-    </body>
+    <script src="js/main.js"></script>
+  </body>
+</html>
