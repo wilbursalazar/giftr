@@ -8,7 +8,7 @@ Wilbur Salazar
 
 ## Overview
 
-Every day, there are people in need of GIFs. Giftr is here to give you the gift of GIFs by allowing you to search for the ones you want, using the GIPHY APIs. You simply click on the search box, type in your requesst, and hit *submit*!
+Every day, there are people in need of GIFs. Giftr is here to give you the gift of GIFs by allowing you to search for the ones you want, using the GIPHY API. You simply click on the search box, type in your requesst, and hit *submit*!
 
 ## How To Use Giftr
 
@@ -23,6 +23,8 @@ HyperText Markup Language, JavaScript, Cascading Style Sheets, and my favorite m
 1. Add a filter function to filter by popularity and resolution
 2. Add a link feature where clicking on a GIF reveals others similar to it
 3. Add a hashtag function that allows you to add search tags to GIFs (like #funny, #weird, #meme, #frogs, etc.)a
+
+---
 
 ## User Stories
 1. A user who wants to search for GIFs by keyword to find similar GIFs in theme
