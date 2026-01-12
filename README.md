@@ -1,4 +1,4 @@
-# Giftr: The World's Only Gif Search Engine On This URL!
+# Giftr: Gif Search Engine
 
 ## Link
 https://wilbursalazar.github.io/giftr/#
@@ -12,7 +12,7 @@ Every day, there are people in need of GIFs. Giftr is here to give you the gift 
 
 ## How To Use Giftr
 
-Are you hankering for a great GIF? Using this handy search function, you can pull up a grid of curated GIFs for your viewing pleasure. More than this, they will render simultanously for you. 
+Are you hankering for a great GIF? Using this handy search function, you can pull up a grid of curated GIFs for your viewing pleasure. More than this, they will render simultaneously for you. 
 
 ## Tech Stack
 
