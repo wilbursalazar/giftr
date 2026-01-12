@@ -1,12 +1,16 @@
+"use strict";
+
+const GIPHY_API_KEY = "ZIh9N4xcNThV4CUBhoSdi9UyOnUMK542";
+
 const form = document.getElementById("searchForm");
 const input = document.getElementById("searchInput");
 const resultsGrid = document.getElementById("resultsGrid");
 const statusEl = document.getElementById("status");
-const GIPHY_API_KEY = "hbKRRknTnybZGCmqXqtDdfI140XSzdKg";
 
-console.log("JS Connected", form, input, resultsGrid);
+console.log("JS connected:", form, input, resultsGrid, statusEl);
 
 function setStatus(message) {
+  if (!statusEl) return;
   statusEl.textContent = message;
 }
 
@@ -20,63 +24,60 @@ function renderGif(url, altText) {
 
   const img = document.createElement("img");
   img.src = url;
-  img.alt = altText;
+  img.alt = altText || "GIF result";
   img.loading = "lazy";
 
   item.appendChild(img);
   resultsGrid.appendChild(item);
 }
 
-function renderGifResults(gifs) {
-  for (const gif of gifs) {
-    const url = gif.images.fixed_width.url;
-    const altText = gif.title || "GIF result";
-    renderGif(url, altText);
-  }
-}
-
-function showNoResults(query) {
-  clearResults();
-  setStatus(`Nothing Matches: ${query}`);
-}
-
-
 async function searchGiphy(query) {
-  const url =
-    "https://api.giphy.com/v1/gifs/search" +
-    "?api_key=" + GIPHY_API_KEY +
-    "&q=" + encodeURIComponent(query) +
-    "&limit=10";
+  const params = new URLSearchParams({
+    api_key: GIPHY_API_KEY,
+    q: query,
+    limit: "24",
+    rating: "g",
+  });
+
+  const url = `https://api.giphy.com/v1/gifs/search?${params.toString()}`;
 
   const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Giphy request failed: ${response.status}`);
+  }
 
-  const data = await response.json();
-  return data;
+  return await response.json();
 }
-
 
 form.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   const query = input.value.trim();
-  if (query === "") return;
+  if (!query) return;
 
   clearResults();
-  setStatus("Loading...");
+  setStatus("wait...");
 
   try {
-    const data = await searchGiphy(query);
+    const payload = await searchGiphy(query);
+    const results = payload.data;
 
-    const gifs = data.data; // array
-    if (!gifs || gifs.length === 0) {
-      showNoResults(query);
+    if (!results || results.length === 0) {
+      setStatus("Nothing matches.");
       return;
     }
 
     setStatus(`Results for: ${query}`);
-    renderGifResults(gifs);
-  } catch (error) {
-    console.error(error);
-    setStatus("Something went wrong. Check the console.");
+
+    for (const gif of results) {
+      const url = gif?.images?.fixed_width?.url;
+      if (!url) continue;
+
+      const altText = gif.title || `GIF result for ${query}`;
+      renderGif(url, altText);
+    }
+  } catch (err) {
+    console.error(err);
+    setStatus("Something's off. see console.");
   }
 });
